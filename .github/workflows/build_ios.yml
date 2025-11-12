@@ -23,7 +23,7 @@ jobs:
     - name: Download Godot headless
       run: |
         curl -L \
-          "https://github.com/godotengine/godot-builds/releases/download/4.3/Godot_v4.3-stable_macos.universal.zip" \
+          "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_macos.universal.zip" \
           -o godot.zip
         unzip -q godot.zip -d godot
 
@@ -31,7 +31,7 @@ jobs:
       run: |
         templates_root="$HOME/Library/Application Support/Godot/export_templates/4.3"
         mkdir -p "$templates_root"
-        curl -L "https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_export_templates.tpz" -o ios_templates.tpz
+        curl -L "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz" -o ios_templates.tpz
         unzip -q ios_templates.tpz -d tmp_templates
         cp tmp_templates/templates/ios.zip "$templates_root/ios.zip"
 
