@@ -39,6 +39,10 @@ jobs:
         godot/Godot.app/Contents/MacOS/Godot --headless --path . \
           --export-release "${IOS_PRESET}" build/ios/${NAME}.xcodeproj
 
+    - name: Download GoodbyeEternity.pck from Dropbox
+      run: |
+        curl -L "https://dl.dropboxusercontent.com/scl/fi/fdt7265yu9djfnstzhftv/GoodbyeEternity.pck?rlkey=qdrt4q2ydc397tvthcx03b9fm&dl=1" -o GoodbyeEternity.pck
+
     - name: Replace default .pck with your actual one
       run: |
         cp GoodbyeEternity.pck build/ios/${NAME}.xcodeproj/GoodbyeEternity.pck
