@@ -1,4 +1,4 @@
 [application]
-config/name="Goodbye Eternity"
+config/name="GoodbyeEternity"
 config/icon="res://icon.png"
 run/main_scene=""
