@@ -15,8 +15,26 @@ jobs:
           set -x
           wget -O archive.zip "https://www.dropbox.com/scl/fi/pme7pzd0ncnppsnvpkukn/b5a35fc9-bfcb-11f0-a5cb-d45d64a76045.zip?rlkey=c7csk0p20h3wvpq5o7fz1isyt&dl=1"
           unzip archive.zip -d .
-          ls -R
+          
+          echo "✅ Check after unzip"
+          ls -la
+          ls -la goodbyeeternity.xcodeproj || true
+          
+          if [ -d goodbyeeternity.xcodeproj ]; then
+            echo "✅ Found project at root"
+          elif [ -d GoodbyeEternity ]; then
+            cd GoodbyeEternity
+            echo "📁 Changed directory into: $(pwd)"
+            ls -la
+          else
+            echo "❌ Không tìm thấy Xcode project!"
+            exit 1
+          fi
 
+          echo "📦 Listing available schemes"
+          xcodebuild -list
+
+          echo "🚀 Bắt đầu build archive"
           xcodebuild archive \
             -project GoodbyeEternity.xcodeproj \
             -scheme GoodbyeEternity \
