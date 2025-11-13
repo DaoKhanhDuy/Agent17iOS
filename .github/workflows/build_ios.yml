@@ -19,6 +19,20 @@ jobs:
         run: |
           xcodebuild -list -project "project/Goodbye Eternity.xcodeproj"
 
+      - name: Remove duplicate libspine_godot frameworks
+        run: |
+          set -xe
+          find "project" -type d -name "libspine_godot.ios.template_debug.framework" | tee frameworks.txt
+          # Keep only one copy (prefer the main spine_godot_extension one)
+          MAIN_PATH=$(grep "spine_godot_extension/ios" frameworks.txt | head -n 1)
+          echo "Keeping: $MAIN_PATH"
+          while read -r path; do
+            if [[ "$path" != "$MAIN_PATH" ]]; then
+              echo "Removing duplicate framework: $path"
+              rm -rf "$path"
+            fi
+          done < frameworks.txt
+
       - name: Build Xcode archive
         run: |
           xcodebuild archive \
