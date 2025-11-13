@@ -28,7 +28,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO
 
           mkdir Payload
-          mv "Goodbye Eternity.xcarchive/Products/Applications/*.app" Payload/
+          mv Goodbye\ Eternity.xcarchive/Products/Applications/*.app Payload/
           zip -r GoodbyeEternity-0.11.0-iOS.ipa Payload
           mv GoodbyeEternity-0.11.0-iOS.ipa ${{ runner.temp }}/GoodbyeEternity-0.11.0-iOS.ipa
 
