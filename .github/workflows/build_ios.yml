@@ -13,7 +13,7 @@ env:
 
 jobs:
   build-ios:
-    runs-on: macos-14      # Apple Silicon runner w/ Xcode 16
+    runs-on: macos-15-intel      # Apple Silicon runner w/ Xcode 16
 
     steps:
     # 0. Pull repo
