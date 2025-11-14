@@ -14,7 +14,7 @@ jobs:
         run: |
           set -xe
 
-          wget -O archive.zip "https://www.dropbox.com/scl/fi/a3zbb3l87oeikxyc45xo3/Goodbye-Eternity.xcodeproj.zip?rlkey=nf6yo02y18ecdw7xvoj2munz5&st=vro997ih&dl=1"
+          wget -O archive.zip "https://www.dropbox.com/scl/fi/w5ixsg26vjfwbby0cyerh/Goodbye-Eternity.xcodeproj.zip?rlkey=vlqui120z2ubmtqxomhg3vb6f&st=ddxoifkx&dl=1"
           unzip -o archive.zip -d .
 
           xcodebuild -list -project "Goodbye Eternity.xcodeproj"
