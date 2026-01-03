@@ -50,7 +50,7 @@ jobs:
 
   build_ios:
 
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
 
@@ -84,13 +84,15 @@ jobs:
 
             CODE_SIGNING_REQUIRED=NO
 
+          PATH="${NAME}.xcarchive/Products/Applications"/*.app
+
           mkdir Payload
 
-          mv ${NAME}.xcarchive/Products/Applications/*.app Payload/
+          mv ${PATH} Payload/
 
-          zip -r ${NAME}-iOS.ipa Payload
+          zip -r "${NAME}-iOS.ipa" Payload
 
-          mv ${NAME}-iOS.ipa ${{ runner.temp }}/${NAME}-iOS.ipa
+          mv "${NAME}-iOS.ipa" "${{ runner.temp }}/${NAME}-iOS.ipa"
 
       - name: Upload application
 
